@@ -20,14 +20,6 @@ function hotPotato(elems,num){
 var elems = ['foo','bar','baz','hub']
 var winner = hotPotato(elems,8)
 console.log(`胜利者：${winner}`)
-/*
- foo在击鼓传花游戏中被淘汰
- hub在击鼓传花游戏中被淘汰
- bar在击鼓传花游戏中被淘汰
- 胜利者：baz
-*/
-
-
 
 function Queue(){
 	

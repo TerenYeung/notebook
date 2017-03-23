@@ -98,7 +98,7 @@ function LinkedList(){
 		return length
 	}
 	this.getHead = function(){
-		retrn head
+		return head
 	}
 	this.print = function(){
 		var current = head,
