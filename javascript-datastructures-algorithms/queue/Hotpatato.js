@@ -1,4 +1,31 @@
-//队列遵循先进先出原则（FIFO）
+/*
+击鼓传花思想：
+给定一个元素菜单和每次传递的次数；
+
+
+ */
+
+
+function hotPatato(menu,num){
+	var queue = new Queue()
+	menu.forEach((item)=>{
+		queue.enqueue(item)
+	})
+	var eliminated = ''
+	while(queue.size()>1){
+		for(var i=0;i<num;i++){
+			queue.enqueue(queue.dequeue())
+		}
+		eliminated = queue.dequeue()
+		console.log(`${eliminated}在击鼓传花游戏中被淘汰；`)
+	}
+	return queue.dequeue()
+}
+
+let menu = ['foo','bar','baz','cat','dog']
+let winner = hotPatato(menu,8)
+console.log(`胜利者：${winner}`)
+
 
 function Queue(){
 	
@@ -28,11 +55,3 @@ function Queue(){
 		console.log(items)
 	}
 }
-
-export default Queue
-
-var queue = new Queue()
-queue.enqueue(1,2,3,4)
-queue.print()
-queue.dequeue()
-queue.print()
