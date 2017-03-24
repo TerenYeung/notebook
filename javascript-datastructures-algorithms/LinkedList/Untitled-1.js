@@ -134,6 +134,6 @@ linkedList.append('teren')
 linkedList.print()//['hello','world','teren']
 linkedList.removeAt(2)//teren
 console.log(linkedList.indexOf('hello'))//0
-console.log(linkedList.getHead())
+console.log(linkedList.getHead())//'hello'
 linkedList.remove('world')//'world'
-linkedList.print()//['hello']
+linkedList.print()
