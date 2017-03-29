@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>dom</title>
+</head>
+<body>
+	<div id="father">
+		father
+		<div id="child">child</div>
+	</div>
+	<script type="text/javascript">
+		var father = document.querySelector('#father'),
+			child = document.querySelector('#child')
+
+		var isContains = father.contains(child)
+
+		function aCompareToB(a,b){
+			return a.compareDocumentPosition(b)
+		}
+
+		console.log(isContains)//true
+		console.log(aCompareToB(father,child))//20
+		console.log(aCompareToB(child,father))//10
+
+		//compareDocumentPosition返回值为6bit二进制数
+		/*
+			第1位：浏览器的私有使用 
+			第2位：a是b的祖先节点 
+			第3位：a是b的子孙节点 
+			第4位：a是b前面的节点 
+			第5位：a是b后面的节点 
+			第6位：a和b在不同的文档（或者一个在文档之外）
+		*/
+		/*
+			33 => 100001 
+			20 => 010100 
+			16 => 010000 
+			10 => 001010 
+			8 =>  001000 
+		    4 =>  000100 
+			2 =>  000010 
+			1 =>  000001 
+		 	0 =>  000000 
+		*/
+		function mock_contains(a,b){
+			return !!(a.compareDocumentPosition(b) & 16)
+		}
+	</script>
+</body>
+</html>
