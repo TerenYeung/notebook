@@ -215,3 +215,40 @@ mysql> source ~/Downloads/ifanrwp.sql.bak //导入数据库
 ### PHP
 
 php-fpm
+
+### PHP与数据库交互
+
+- phpMyAdmin
+
+phpMyAdmin 就是一个管理mysql数据库的工具，是居于Web的模式，缺陷也很多，尤其安全性；
+
+不用这个工具 还有很多其他图形化工具，不过生产环境绝大多数全命令行mysql工具
+
+MySQLi extension,PHP 5 及以上版本建议使用以下方式连接 MySQL,表达了 PHP 和 MySQL 数据库之间的连接
+
+- MySQL客户端
+
+在shell下运行mysql语句
+
+```
+$ mysql -u adminusername -p
+Enter password:
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 5340 to server version: 3.23.54
+
+Type 'help;' or '\h' for help. Type '\c' to clear the buffer.
+
+mysql> CREATE DATABASE databasename;
+Query OK, 1 row affected (0.00 sec)
+
+mysql> GRANT ALL PRIVILEGES ON databasename.* TO "wordpressusername"@"hostname"
+    -> IDENTIFIED BY "password";
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> FLUSH PRIVILEGES;
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> EXIT
+Bye
+$
+```
