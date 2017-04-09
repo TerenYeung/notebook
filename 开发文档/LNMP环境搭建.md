@@ -252,3 +252,48 @@ mysql> EXIT
 Bye
 $
 ```
+
+
+---
+
+ping www.baidu.com
+
+
+
+# 给Cent分配静态ip，这样就可以在远程使用Cent
+vi /etc/sysconfig/network-scripts/ifcfg-enp0s3
+
+BOOTPROTO=static # dhcp
+IPADDR=192.168.1.150
+NM_CONTROLLED=no
+ONBOOT="yes"
+
+sudo systemctl restart network.service
+
+ip addr
+
+开放防火墙，允许登录Cent
+
+sudo firewall-cmd --zone=public --add-port=22/tcp --permanent
+
+sudo systemctl restart firewalld.service
+
+iterm2
+
+ssh teren@192.168.1.150
+
+
+所谓防火墙指的是一个由软件和硬件设备组合而成、在内部网和外部网之间、专用网与公共网之间的界面上构造的保护屏障.是一种获取安全性方法的形象说法，它是一种计算机硬件和软件的结合，使Internet与Intranet之间建立起一个安全网关（Security Gateway），从而保护内部网免受非法用户的侵入，防火墙主要由服务访问规则、验证工具、包过滤和应用网关4个部分组成，防火墙就是一个位于计算机和它所连接的网络之间的软件或硬件。该计算机流入流出的所有网络通信和数据包均要经过此防火墙。
+
+
+
+
+
+
+
+
+
+
+
+
+

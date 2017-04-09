@@ -1,0 +1,7 @@
+//注意@import后面的分号；
+@import url('./font.css');
+
+body {
+	color: red;
+}
+
