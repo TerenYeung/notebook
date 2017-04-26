@@ -8,7 +8,7 @@ $(function(){
 
     // Todo Model
     // ----------
-
+    // console.log(_)
     // Our basic **Todo** model has `title`, `order`, and `done` attributes.
     var Todo = Backbone.Model.extend({
 
@@ -50,6 +50,7 @@ $(function(){
 
         // Filter down the list of all todo items that are finished.
         done: function() {
+
             return this.filter(function(todo){ return todo.get('done'); });
         },
 
@@ -67,7 +68,8 @@ $(function(){
 
         // Todos are sorted by their original insertion order.
         comparator: function(todo) {
-            return todo.get('order');
+            return todo.get('order'
+            );
         }
 
     });
@@ -109,7 +111,9 @@ $(function(){
             this.$el.html(this.template(this.model.toJSON()));
             this.$el.toggleClass('done', this.model.get('done'));
             this.input = this.$('.edit');
+            // console.log(this.$el)
             return this;
+
         },
 
         // Toggle the `"done"` state of the model.

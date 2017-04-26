@@ -1,0 +1,9 @@
+{
+  "name": "yarn-demo",
+  "version": "1.0.0",
+  "description": "this is test of yarn",
+  "main": "index.js",
+  "author": "teren",
+  "license": "MIT",
+  "dependencies": {}
+}

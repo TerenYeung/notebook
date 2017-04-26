@@ -1,0 +1,20 @@
+{
+  "name": "underscore-study",
+  "version": "1.0.0",
+  "description": "this is a study of underscore",
+  "main": "index.js",
+  "scripts": {
+    "test": "nodemon --inspect src/*.js"
+  },
+  "keywords": [
+    "underscore"
+  ],
+  "author": "teren",
+  "license": "MIT",
+  "devDependencies": {
+    "nodemon": "1.11.0"
+  },
+  "dependencies": {
+    "underscore": "1.8.3"
+  }
+}

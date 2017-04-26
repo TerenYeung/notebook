@@ -1,16 +1,115 @@
-#todo-app {
+* {
+	box-sizing: border-box;
+}
+
+ul,li {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.todo-app {
+	font-family: Monaco;
 	border: 1px solid;
 	width: 600px;
 	text-align: center;
 	margin: 0 auto;
 	border-radius: 5px;
+	padding: 10px 0;
 }
 
-#todo-app #new-todo {
+.header__todoApp {
+	margin: 20px 0;
+}
+
+.header__input {
+	font-family: Monaco;
+	outline: none;
+	border: 1px solid #ccc;
+}
+
+.header__input_normal {
+	font-size: 30px;
 	width: 540px;
 	height: 50px;
-	font-size: 40px;
+	padding:0 5px ;
+	border-radius: 5px;
+}
+
+.toggleAll {
+
+}
+
+.main__toggleAll:hover {
+	cursor: pointer;
+}
+
+.main__toggleAllLabel {
+	color: #fff;
+	font-weight:600;
+	background: #555;
+	border-radius: 10px;
+	padding: 5px 10px;
+	transition: color .3s;
+}
+
+.todo-list {
+	width: 540px;
+	margin: 0 auto;
+}
+
+.todo-list li.done label{
+	color: #777;
+	text-decoration: line-through;
+}
+
+.todo-list li.editing .view {
+	display: none;
+}
+
+.todo-list li.editing .edit {
+	display: block;
+	font-size: 30px;
+	width: 540px;
+	height: 50px;
+	padding:0 5px ;
+	margin: 10px 0;
 	outline: none;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+}
+
+.todo-item {
+	border-bottom: 1px solid #ccc;
+	padding: 5px 0;
+}
+
+.view {
+	overflow: hidden;
+}
+
+.toggle {
+	float: left;
+	margin-top: 12px;
+}
+
+.toggle-label {
+	font-size: 25px;
+	margin-left: 5px;
+	float: left;
+}
+
+.destroy {
+	float: right;
+	margin-top: 7px;
+	width: 20px;
+	height: 20px;
+	background: #000;
+	display: inline-block;
+}
+
+.edit {
+	display: none;
 }
 
 #credit {

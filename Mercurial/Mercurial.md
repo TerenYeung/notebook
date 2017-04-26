@@ -58,14 +58,14 @@ hg log --debug
 
 万一我们被别的事情打扰，在创建变更集之后忘记了它里面有哪些变更，怎么办呢？ 这时候我们要用到status命令
 
-hg status 
+hg status
 hg st
 
 使用diff可以检查文件的实际改变
 hg diff
 
 放弃变更并重新开始
-hg revert hello.c 
+hg revert hello.c
 hg revert --all
 
 revert重命名被编辑文件hello.c为hello.c.orig并恢复hello.c到它的未编辑状态
@@ -88,4 +88,25 @@ hg merge将不同仓库的修改合并在一起，通常处理简单的合并
 复杂的冲突：两个人同时更改同一个文件的同一段代码，然后必须给出处理的方法。这称之为冲突；处理这类冲突称之为合并。
 
 
+分支管理
 
+- 查看当前分支
+
+```
+hg branch
+```
+- 查看所有分支
+
+```
+hg branches
+```
+
+- 切换并更新分支
+
+```
+hg update feature/hebei-tobacco
+```
+
+create patch和apply patch的使用
+
+git stash 在hg中的使用

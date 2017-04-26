@@ -6,17 +6,17 @@
 	<link rel="stylesheet" href="./todos.css">
 </head>
 <body>
-	<div id="todo-app">
-		<header>
-			<h1>Todos</h1>
-			<input id="new-todo" type="text"
+	<div class="todo-app" id="app">
+		<header class="header header__todoApp">
+			<h1 class="header__title">todo MVC</h1>
+			<input class="header__input header__input_normal" id="new-todo" type="text"
 			placeholder="What needs to be done?">
 		</header>
 
-		<section id="main">
-			<input id="toggle-all" type="checkbox">
-			<label for="toggle-all">Mark all as completed</label>
-			<ul id="todo-list"></ul>
+		<section class="main" id="main">
+			<input class="toggleAll main__toggleAll" id="toggle-all" type="checkbox">
+			<label class="toggleAllLabel main__toggleAllLabel">Mark all as completed</label>
+			<ul class="todo-list" id="todo-list"></ul>
 		</section>
 
 		<footer>
@@ -36,18 +36,18 @@
 		<a href="http://addyosmani.github.com/todomvc">TodoMVC</a>.
 	</div>
 
-	<script src="spec/support/jquery.js"></script>
-	<script src="spec/support/underscore.js"></script>
-	<script src="spec/support/backbone.js"></script>
-	<script src="backbone.localStorage.js"></script>
-	<script src="todos.js"></script>
+	<script src="./spec/support/jquery.js"></script>
+	<script src="./spec/support/underscore.js"></script>
+	<script src="./spec/support/backbone.js"></script>
+	<script src="./backbone.localStorage.js"></script>
+	<script src="./todos.js"></script>
 
 	<script type="text/template" id="item-template">
 		<div class="view">
 			<input class="toggle" type="checkbox"
 				<%= done ? 'checked = "checked" ' : '' %>
 			/>
-			<label><%- title %></label>
+			<label class="toggle-label"><%- title %></label>
 			<a class="destroy"></a>
 		</div>
 		<input class="edit" type="text" value="<%- title %>">
@@ -57,7 +57,7 @@
 
 		<div class="todo-count">
 			<b><%= remaining %></b>
-			<%= remaing ==1 ? 'item' : 'items' %>
+			<%= remaining ==1 ? 'item' : 'items' %>
 			left
 		</div>
 

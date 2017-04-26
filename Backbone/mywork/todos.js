@@ -1,150 +1,199 @@
 $(function(){
 
-// Todo Model
+    var Todo = Backbone.Model.extend({
 
-	//扩展Model类为Todo类，该Todo类用于定义
-	//每个Todo实例的数据和处理数据的方法
-	let Todo = Backbone.Model.extend({
+        defaults: function(){
+            return {
+                title: 'todoMVC',
+                done: false,
+                order: 0,
+            }
+        },
 
-		//一个Todo的默认属性
-		defaults: function(){
-			return {
-				title: "no todo", //从输入框输入的todo项目
-				done: false,
-				order: null
-			};
-		}
+        toggle: function(){
+            this.save({'done': !this.get('done')});
+        },
+    });
 
-		//当Todo实例创建后，初始化操作
-		initialize: function(){
+    var Todos = Backbone.Collection.extend({
 
-			//确保每一个todo实例有title
-			if(!this.get('title')){
-				this.set('title',this.defaults.title);
-			}
-		}
+        model: Todo,
 
-		//用于操作Todo实例的done属性
-		toggle: function(){
-			this.save('done',!this.get('done'));
-		}
+        localStorage: new Backbone.LocalStorage('todoMVC'),
 
-	})
+        done: function(){
 
-// Todo Item View
+            return this.filter(function(todo){
+                return todo.get('done');
+            });
 
-	//创建每一个todo项目的DOM节点
+        },
 
-	let TodoView = Backbone.View.extend({
+        remaining: function(){
 
-		//指定TodoView类进行挂载的DOM节点
-		tagName: 'li',
+            return this.without.apply(this, this.done());
+        },
 
-		//指定TodoView类进行渲染后的HTML
-		template: _.template($('#item-template').html()),
+    });
 
-		//定义Todo项目的事件逻辑
-		events: {
-			'click .toggle': 'toggleDone',
-			'dblclick .view': 'edit',
-			'click a.destroy': 'clear',
-			'keypress .edit': 'updateOnEnter',
-			'blur .edit': 'update',
-		},
+    var todos = new Todos;
 
-		//在初始化Todo Item时监听Model的变化
-		//在model改变时，重绘视图；
-		//在model销毁时候，移出视图；
-		initialize: function(){
-			this.listenTo(this.model, 'change', this.render);
-			this.listenTo(this.model, 'destroy', this.reomove);
-		},
+    var TodoView = Backbone.View.extend({
 
-		//定义各种事件的具体处理逻辑
-		toggleDone: function(){
+        tagName: 'li',
 
-			//直接调用在Backbone.Model中的自定义类Todo的toggle方法
-			this.model.toggle();
-		},
+        className: 'todo-item',
 
-		edit: function(){
+        template: _.template($('#item-template').html()),
 
-			//在li元素上添加一个editing类，用于元素切换
-			this.$el.addClass('editing');
-			this.$input.focus();
-		},
+        events: {
 
-		clear: function(){
-			this.model.destroy();
-		},
+            'click .toggle'     : 'toggleDone',
+            'click a.destroy'   : 'clear',
+            'dblclick .view'    : 'edit',
+            'keypress .edit'    : 'updateOnEnter',
+            'blur .edit'        : 'close',
+        },
 
-		updateOnEnter: function(e){
-			//按下回车后，保存更改
-			if(e.keycode == 13) this.update();
-		},
+        initialize: function(){
 
-		update: function(){
+            this.listenTo(this.model, 'change', this.render);
+            this.listenTo(this.model, 'destroy', this.remove);
+        },
 
-			let value = this.$input.val();
-			if(!value){
-				this.clear();
-			}else {
-				this.model.save('title',value);
-				this.$el.removeClass('editing');
-			}
-		}
+        render: function(){
 
-	})
+            this.$el.html(this.template(this.model.toJSON()));
+            this.$el.toggleClass('done', this.model.get('done'));
+            return this;
 
+        },
 
-// Todo Collection
+        toggleDone: function(){
 
-	//每个Collection类用于存储应用的model
-	//以及对model进行处理的业务逻辑
-	let TodoList = Backbone.Collection.extend({
+            this.model.toggle();
+        },
 
-		//指定集合的model类
-		model: Todo,
+        clear: function(){
 
-		//将所有的todo项目存储在“todos-backbone”的localStorage
-		localStorage: new localStorage('todos-backbone');
+            this.model.destroy();
+        },
 
+        edit: function(){
+          this.$el.addClass('editing');
+          this.$('.edit').focus();
+        },
 
+        updateOnEnter: function(e){
+            if(e.keyCode == 13) this.close();
+        },
 
-	});
+        close: function(){
+            var title = this.$('.edit').val();
+            if(!title){
+                this.clear();
+            }else {
+                this.model.save({title: title});
+                this.$el.removeClass('editing');
+            }
+        },
 
-	let Todos = new TodoList;
+    })
 
-// Todo View
+    var AppView = Backbone.View.extend({
 
-	let Appview = Backbone.View.extend({
+        el: $('#app'),
 
-		el: $('#todo-app'),
+        events: {
+            'keypress #new-todo'    : 'createOnEnter',
+            'click #toggle-all'     : 'toggleAllCompleted',
+            'click #clear-completed': 'clearCompleted',
+        },
 
-		statsTemplate: _.template($('#stats-template').html()),
+        statsTemplate: _.template($('#stats-template').html()),
 
-		events: {
+        initialize: function(){
 
-			'keypress #new-todo': 'createOnEnter',
-			'click #toggle-all': 'toggleAllComplete',
-			'click #clear-completed': 'clearComplted'
+            this.$newTodo = this.$('#new-todo');
+            this.allCheckbox = this.$('#toggle-all')[0];
+            this.$main = this.$('#main');
+            this.$footer = this.$('footer');
 
-		}
+            this.listenTo(todos, 'add', this.addOne);
+            this.listenTo(todos, 'all', this.render);
+            this.listenTo(todos, 'reset', this.addAll);
 
-		initialize: function(){
+            todos.fetch();
+        },
 
-			this.input = this.$('#new-todo');
-			this.allCheckbox = this.$('#toggle-all')[0];
-			this.main = $('#main');
-			this.footer = this.$('footer');
+        createOnEnter: function(e){
 
-			this.listenTo(Todos, 'add', this.addOne());
-			this.listenTo(Todos, 'reset', this.addOne());
-			this.listenTo(Todos, 'all', this.addOne());
+            var title = this.$newTodo.val();
 
-		}
-	})
+            if(e.keyCode != 13) return;
+            if(!title) return;
 
-	let App = new AppView;
+            todos.create({title: title});
 
+            this.$newTodo.val('');
+        },
+
+        addOne: function(model){
+
+            //todo is a model when todos.create() dispatch added
+
+            var todoView = new TodoView({model: model});
+
+            this.$('#todo-list').append(todoView.render().el);
+
+        },
+
+        toggleAllCompleted: function(){
+
+            var done = this.allCheckbox.checked;
+
+            todos.each(function(todo){
+                todo.save({'done': done});
+            })
+        },
+
+        clearCompleted: function(){
+
+            _.invoke(todos.done(), 'destroy');
+        },
+
+        render: function(){
+
+            var done = todos.done().length,
+                remaining = todos.remaining().length;
+
+            if(!todos.length) {
+
+                this.$main.hide();
+                this.$footer.hide();
+            }else {
+                this.$main.show();
+                this.$footer.show();
+                this.$footer.html(this.statsTemplate({
+                    done: done,
+                    remaining: remaining,
+                }));
+            }
+            this.allCheckbox.checked = !remaining;
+
+        },
+
+        addAll: function(){
+
+            var _this = this
+            todos.each(function(todo){
+                _this.addOne(todo);
+            })
+        }
+
+    });
+
+    var App = new AppView;
+
+    //finished
 })
