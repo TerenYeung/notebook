@@ -47,3 +47,7 @@ Ajax翻页地址栏是没有变化，点击上一页不知会退到哪里，因�
 
 Ajax翻页实现不刷新页面加载页面内容，但url无法变化；
 传统翻页url发生变化，但是页面内容进行刷新；
+
+[demo](http://js.jirengu.com/yaraf/2/edit)
+[无刷新加载页面](http://www.webhek.com/post/history-pushstate.html)
+
