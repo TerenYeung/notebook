@@ -13,14 +13,14 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: stay hungry stay foolish 
-email: terenyeung@gmail.com 
+title: stay hungry stay foolish
+email: terenyeung@gmail.com
 #  line in _config.yml. It will appear in your document head meta (for
 #  Google search results) and in your feed.xml site description.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
-twitter_username: teren 
-github_username: teren 
+twitter_username: teren
+github_username: teren
 weibo_username: teren
 # Build settings
 markdown: kramdown
@@ -30,3 +30,6 @@ gems:
 exclude:
   - Gemfile
   - Gemfile.lock
+
+source:      _source
+destination: _deploy

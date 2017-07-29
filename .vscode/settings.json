@@ -1,0 +1,11 @@
+{
+  "files.associations": {
+    "*.wxml": "html",
+    "random": "cpp",
+    "ostream": "cpp",
+    "__tree": "cpp",
+    "algorithm": "cpp",
+    "map": "cpp",
+    "set": "cpp"
+  }
+}

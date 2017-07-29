@@ -213,3 +213,5 @@ store的state通过vue实例的computed属性返回值；
 改变state，只需要在methods属性定义store.commit
 
 
+
+

@@ -1,7 +1,0 @@
-<canvas style="width: 300px; height: 200px;" canvas-id="firstCanvas"></canvas>
-<contact-button 
-  type="default-light" 
-  size="20"
-  session-from="weapp"
->对对对
-</contact-button>
