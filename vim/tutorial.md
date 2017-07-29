@@ -186,5 +186,45 @@ CTRL-W to jump to another window;
 
 in the : mode, user CTRL-D, will show a list of commands, use <Tab> to complete the command;
 
+---
 
+## 基础
 
+- Buffers, windows, tabs
+
+每次文本都作为缓冲区的一部分显示，文件的变动会同步到磁盘上；
+
+窗口是buffers上一层的视图，将同一个窗口拆分时，它们还是在同一个缓冲区；
+
+tab page 是窗口的集合，
+
+- Active, loaded, listed, named buffers
+
+vim filename 就将文件内容 loaded into buffer;
+
+当 :w 之后，就可以将 the content of buffer 同步到磁盘；
+
+buffer 有 active buffer 和 hidden buffer，active buffer 就是处于激活态的窗口；
+
+:ls 可以展示当前所有的 listed 的 buffers，:ls! 展示所有的 buffers；
+
+- Argument list
+
+全局缓冲区列表可以展示当前所有窗口打开的文件；
+
+也可以通过参数列表，去操作不同的文件；
+
+:args
+:next
+:previous
+:first
+:last
+:h argument-list
+
+- mappings
+
+按键映射
+
+[按键映射](https://github.com/wsdjeg/vim-galore-zh_cn#%E6%8C%89%E9%94%AE%E6%98%A0%E5%B0%84)
+
+映射占位符 
