@@ -315,6 +315,18 @@ g- and g+ 是按时间遍历；
 
 内容变更历史记录是保存在内存中的，在 Vim 退出时清空，如果想要让它持久化到磁盘，可设置:set undofile；
 
+- other cmd
+
+  - 缩进
+    >>
+    <<
+
+  - 代码折叠
+    zo
+    zc
+
+  - tabs
+
 
 ## 插件管理
 
@@ -328,3 +340,10 @@ zo 展开代码
  set foldmethod=syntax
  set foldmethod=marker
 ```
+
+- 声明/定义跳转
+
+
+---
+ctrlp
+syntastic
