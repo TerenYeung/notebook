@@ -18,6 +18,7 @@ Lession 1.2 EXITING VIM
 <ESC> to normal mode;
 type :q! force to quit without saving anything;
 
+
 Lession 1.3 TEXT EDITING - DELETION
 x to delete a character;
 
@@ -228,3 +229,102 @@ buffer 有 active buffer 和 hidden buffer，active buffer 就是处于激活态
 [按键映射](https://github.com/wsdjeg/vim-galore-zh_cn#%E6%8C%89%E9%94%AE%E6%98%A0%E5%B0%84)
 
 映射占位符 
+
+- Registers 寄存器
+
+[寄存器](https://github.com/wsdjeg/vim-galore-zh_cn#%E5%AF%84%E5%AD%98%E5%99%A8)
+
+- Ranges
+
+与 normal mode 的文本的范围处理有一定的类似之处，Rages 文本处理是在 command-line mode 下进行的；
+
+:1,$d
+:.,5d
+:.,+3d
+:/^foo/, $delete
+
+注意的是，,和;都可以表示返回，a,b 是以 b 作为当前行参考，a;b 是以 a 作为当前行参考;
+
+- Marks
+
+normal mode to type m{a-zA-Z} to mark a position;
+
+type '{mark} to jump to the position of mark;
+
+:delm {mark} to delete a mark
+
+detail see :h mark-motions
+
+[marks](https://github.com/wsdjeg/vim-galore-zh_cn#%E6%A0%87%E6%B3%A8)
+
+- Autocmds
+
+自动命令就是在使用 Vim 的时候会发出一系列的事件，可以针对这些事件执行回调函数；
+
+:h aotocmd-events-abc to read the autocmd events;
+
+- Changelist and Jumplist
+
+:jumps
+:changes
+
+- Undo Tree
+
+Vim 采用 tree 数据结构存储内容变更的历史记录；
+
+有两种方式遍历这个树结构，按分支遍历，按时间遍历；
+
+u and CTRL-R 是按分支遍历；
+
+g- and g+ 是按时间遍历；
+
+---
+
+## HELP
+
+如何获取 VIM 的内建帮助文本？
+
+:h
+
+- 关于帮助主题的简单规则
+
+	- 使用单引号文本表示 options，:h 'textwidth'
+	- VimL 函数以 () 结尾，:h reverse()
+	- command-line 的 命令 以 : 开头，:h :echo
+	- normal mode 的命令直接填，:h j
+
+
+在 command-line type <c-d> 罗列出所有当前输入内容的帮助主题； 
+
+如果不清楚具体:h 的内容，可以使用 :helpgrep keywords 去查找；
+
+---
+
+## TEMPORARY FILES
+
+- backup files
+
+在保存文件之前，Vim 会创建一个 backup file，如果保存成功，backup file 将被删除；
+
+- swap files
+
+当编辑文件时，未保存的变化结果将被写入 swap file;
+获取当前 swap file 的文件名，:swapname;
+
+- undo files
+
+内容变更历史记录是保存在内存中的，在 Vim 退出时清空，如果想要让它持久化到磁盘，可设置:set undofile；
+
+
+## 插件管理
+
+- 代码折叠
+
+zc 折叠代码
+zo 展开代码
+
+```
+ set foldmethod=indent
+ set foldmethod=syntax
+ set foldmethod=marker
+```
