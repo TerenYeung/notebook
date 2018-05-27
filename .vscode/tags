@@ -1,0 +1,38 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+PhpLexer	../wordpress/wordpress/phpMyAdmin/vendor/guzzle/guzzle/docs/conf.py	/^from pygments.lexers.web import PhpLexer$/;"	kind:namespace	line:3
+conf.py	../wordpress/wordpress/phpMyAdmin/vendor/guzzle/guzzle/docs/conf.py	1;"	kind:file	line:1
+copyright	../wordpress/wordpress/phpMyAdmin/vendor/guzzle/guzzle/docs/conf.py	/^copyright = u'2012, Michael Dowling'$/;"	kind:variable	line:17
+ex1.py	../Road-To-BE/PYTHON/lpthw/ex1.py	1;"	kind:file	line:1
+ex2.py	../Road-To-BE/PYTHON/lpthw/ex2.py	1;"	kind:file	line:1
+exclude_patterns	../wordpress/wordpress/phpMyAdmin/vendor/guzzle/guzzle/docs/conf.py	/^exclude_patterns = ['_build']$/;"	kind:variable	line:21
+extensions	../wordpress/wordpress/phpMyAdmin/vendor/guzzle/guzzle/docs/conf.py	/^extensions = []$/;"	kind:variable	line:11
+guzzle_sphinx_theme	../wordpress/wordpress/phpMyAdmin/vendor/guzzle/guzzle/docs/conf.py	/^import guzzle_sphinx_theme$/;"	kind:namespace	line:47
+html_short_title	../wordpress/wordpress/phpMyAdmin/vendor/guzzle/guzzle/docs/conf.py	/^html_short_title = "Guzzle"$/;"	kind:variable	line:28
+html_sidebars	../wordpress/wordpress/phpMyAdmin/vendor/guzzle/guzzle/docs/conf.py	/^html_sidebars = {$/;"	kind:variable	line:36
+html_static_path	../wordpress/wordpress/phpMyAdmin/vendor/guzzle/guzzle/docs/conf.py	/^html_static_path = ['_static']$/;"	kind:variable	line:33
+html_theme	../wordpress/wordpress/phpMyAdmin/vendor/guzzle/guzzle/docs/conf.py	/^html_theme = 'guzzle_sphinx_theme'$/;"	kind:variable	line:50
+html_theme_options	../wordpress/wordpress/phpMyAdmin/vendor/guzzle/guzzle/docs/conf.py	/^html_theme_options = {$/;"	kind:variable	line:53
+html_theme_path	../wordpress/wordpress/phpMyAdmin/vendor/guzzle/guzzle/docs/conf.py	/^html_theme_path = guzzle_sphinx_theme.html_theme_path()$/;"	kind:variable	line:49
+html_title	../wordpress/wordpress/phpMyAdmin/vendor/guzzle/guzzle/docs/conf.py	/^html_title = "Guzzle documentation"$/;"	kind:variable	line:27
+html_translator_class	../wordpress/wordpress/phpMyAdmin/vendor/guzzle/guzzle/docs/conf.py	/^html_translator_class = 'guzzle_sphinx_theme.HTMLTranslator'$/;"	kind:variable	line:48
+htmlhelp_basename	../wordpress/wordpress/phpMyAdmin/vendor/guzzle/guzzle/docs/conf.py	/^htmlhelp_basename = 'Guzzledoc'$/;"	kind:variable	line:41
+latex_documents	../wordpress/wordpress/phpMyAdmin/vendor/guzzle/guzzle/docs/conf.py	/^latex_documents = [$/;"	kind:variable	line:68
+latex_elements	../wordpress/wordpress/phpMyAdmin/vendor/guzzle/guzzle/docs/conf.py	/^latex_elements = {}$/;"	kind:variable	line:64
+lexers	../wordpress/wordpress/phpMyAdmin/vendor/guzzle/guzzle/docs/conf.py	/^from sphinx.highlighting import lexers$/;"	kind:namespace	line:2
+man_pages	../wordpress/wordpress/phpMyAdmin/vendor/guzzle/guzzle/docs/conf.py	/^man_pages = [$/;"	kind:variable	line:77
+master_doc	../wordpress/wordpress/phpMyAdmin/vendor/guzzle/guzzle/docs/conf.py	/^master_doc = 'index'$/;"	kind:variable	line:14
+os	../wordpress/wordpress/phpMyAdmin/vendor/guzzle/guzzle/docs/conf.py	/^import sys, os$/;"	kind:namespace	line:1
+primary_domain	../wordpress/wordpress/phpMyAdmin/vendor/guzzle/guzzle/docs/conf.py	/^primary_domain = 'php'$/;"	kind:variable	line:7
+project	../wordpress/wordpress/phpMyAdmin/vendor/guzzle/guzzle/docs/conf.py	/^project = u'Guzzle'$/;"	kind:variable	line:16
+release	../wordpress/wordpress/phpMyAdmin/vendor/guzzle/guzzle/docs/conf.py	/^release = '3.0.0'$/;"	kind:variable	line:19
+source_suffix	../wordpress/wordpress/phpMyAdmin/vendor/guzzle/guzzle/docs/conf.py	/^source_suffix = '.rst'$/;"	kind:variable	line:13
+sys	../wordpress/wordpress/phpMyAdmin/vendor/guzzle/guzzle/docs/conf.py	/^import sys, os$/;"	kind:namespace	line:1
+templates_path	../wordpress/wordpress/phpMyAdmin/vendor/guzzle/guzzle/docs/conf.py	/^templates_path = ['_templates']$/;"	kind:variable	line:12
+test.py	../python/test.py	1;"	kind:file	line:1
+texinfo_documents	../wordpress/wordpress/phpMyAdmin/vendor/guzzle/guzzle/docs/conf.py	/^texinfo_documents = [$/;"	kind:variable	line:90
+version	../wordpress/wordpress/phpMyAdmin/vendor/guzzle/guzzle/docs/conf.py	/^version = '3.0.0'$/;"	kind:variable	line:18

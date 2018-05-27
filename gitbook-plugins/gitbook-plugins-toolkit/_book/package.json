@@ -1,0 +1,14 @@
+{
+  "name": "gitbook-plugin-toolkit",
+  "version": "1.0.0",
+  "description": "a toolkit for gitbook",
+  "main": "index.js",
+  "author": "ifanrx",
+  "license": "MIT",
+  "dependencies": {
+    "gitbook-markdown": "2.0.1"
+  },
+  "engines": {
+    "gitbook": ">2.x.x"
+  }
+}

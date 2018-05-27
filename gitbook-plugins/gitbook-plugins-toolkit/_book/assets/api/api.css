@@ -1,0 +1,42 @@
+.api-header {
+
+}
+
+.api-header .api-header0tutke {
+  font-weight: 500;
+}
+
+.api-header .api-header-desc {
+  border-bottom: 1px solid #ebedf0;
+  margin-bottom: 10px;
+  padding-bottom: 5px;
+
+}
+
+.api-header .api-header-desc .method {
+  background: #1890ff;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  color: #FFF;
+  font-weight: 500;
+  margin-right: 20px;
+  display: inline-block;
+}
+
+.api-header .api-header-desc .name {
+  font-weight: 500;
+}
+
+.api-header .api-header-url {
+  margin-bottom: 10px;
+  font-size: 1.3rem;
+}
+
+
+
+.api-header .api-header-name {
+  float: left;
+  font-weight: 500;
+}
+

@@ -341,6 +341,12 @@ zo 展开代码
  set foldmethod=marker
 ```
 
+- 代码注释
+
+<Leader>cc
+<Leader>cn
+<Leader>c<space>
+
 - 声明/定义跳转
 
 

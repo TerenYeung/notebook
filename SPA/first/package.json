@@ -1,0 +1,8 @@
+{
+  "name": "first_spa",
+  "version": "1.0.0",
+  "description": "spa",
+  "main": "index.js",
+  "author": "terenyeung",
+  "license": "MIT"
+}
